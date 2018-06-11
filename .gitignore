@@ -47,6 +47,7 @@ Thumbs.db
 # Terraform state files & secrets file
 *.tfstate*
 *secret_credentials.tf*
+.terraform
 
 # other
 *lock.json*
