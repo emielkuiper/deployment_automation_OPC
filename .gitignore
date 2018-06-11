@@ -44,8 +44,9 @@ Thumbs.db
 ######################
 *.retry
 
-# Terraform state files
+# Terraform state files & secrets file
 *.tfstate*
+*secret_credentials.tf*
 
 # other
 *lock.json*
