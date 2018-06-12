@@ -1,32 +1,18 @@
-- hosts: all
-  remote_user: opc
-  become: true
-  become_user: root
-  become_method: sudo
-  gather_facts: true
-
-
 #############################################################################
 ###
-### Tasks
+### Hosts & roles
 ###
 
-  tasks:
+- hosts:         all
+  remote_user:   opc
+  become:        true
+  become_user:   root
+  become_method: sudo
+  gather_facts:  true
 
-
-###
-### Install GENERIC Packages
-###
-
-  - name: Installing Packages
-    yum:
-      name: "{{ item }}"
-      state: latest
-      update_cache: yes
-    with_items:
-      - which
-      - curl
-      - java-1.8.0-openjdk-headless
-    when:
-      - ansible_os_family == "RedHat"
-      - ansible_distribution_major_version == "7"
+  roles:
+    - common
+      # install generic packages
+      #when:
+      #  # - inventory_hostname in groups['cicd']
+      #  - ('cicd' in group_names)
