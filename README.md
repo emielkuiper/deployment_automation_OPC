@@ -20,6 +20,19 @@ Therefore, this project makes use of the following two pre-existing Github proje
 * https://github.com/nbering/terraform-provider-ansible
 * https://github.com/nbering/terraform-inventory
 
+PS: before you use this you might want to disable stricthostchecking in ansible.cfg.
+
+Make sure that in /etc/ansible/ansible.cfg the folowing lines are present:
+
+```
+[defaults]
+host_key_checking = False
+```
+
+Because the destination addresses Ansible connects to could change with every deployment these addresses will most certainly not be present in the known_hosts file.
+
+By disabling these checks there is no need to confirm each new exception onto the known_hosts file.
+
 
 ## Terraform-provider-ansible
 The "terraform-provider-ansible" project has created a so-called 'virtual provider'.
